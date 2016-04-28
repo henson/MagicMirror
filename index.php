@@ -1,6 +1,6 @@
 <html>
  <head> 
-  <title>M@gicMirror Beta</title> 
+  <title>Magic Mirror</title> 
   <style type="text/css">
 		<?php include('css/main.css') ?>
 	</style> 
