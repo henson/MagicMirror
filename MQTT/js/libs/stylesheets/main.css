@@ -1,0 +1,12 @@
+body {
+    background: #f1f4f8;
+    font-family: 'whitney-medium', Helvetica, Arial, sans-serif;
+    padding-top: 100px;
+    overflow-x: hidden;
+}
+
+#generateRandomId {
+    margin-top: 25px;
+}
+
+textarea { resize:vertical; }

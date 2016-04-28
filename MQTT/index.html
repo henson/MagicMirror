@@ -1,0 +1,50 @@
+<html>
+  <head>
+    <title>Web MQTT Client</title>	
+  </head>
+  <body>
+    <div class='container' id="main">
+		<div class='page-header'>
+			<h3>Web MQTT Client</h3>
+		</div>
+		<div class='col-sm-12' >
+			<div id="topic"></div>
+			
+			<hr>
+			
+			<div id='publish'></div>
+			
+			<div class="panel panel-success">
+				<div class="panel-heading">
+					 <h3 class="panel-title">Received Messages</h3>
+				</div>
+				<div class="panel-body">
+					<div id='message'></div>
+				</div>
+			</div>
+		</div>
+	</div>
+  </body>
+  	<script src="js/libs/mqttws31.js"></script>
+	<script src="js/libs/jquery-1.11.2.min.js"></script>
+	<link href="js/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/mystylesheet.css" rel="stylesheet" />
+	<link href="js/libs/bootstrap-multiselect.css" rel="stylesheet" />
+	<script src="js/libs/bootstrap/js/bootstrap.min.js"></script>
+	<script src="js/libs/bootstrap-multiselect.js"></script>
+	<script src="js/libs/react-0.12.2.js"></script>
+	<script src="js/libs/react-with-addons-0.12.2.js"></script>
+    <script src="js/libs/JSXTransformer-0.13.0.js"></script>
+	<script src="js/libs/events.js"></script>
+	<script src="js/libs/merge.js"></script>
+	<script src="js/libs/reactable.js"></script>
+	<script src="js/publisher.js"></script>
+	<script src="js/subscriber.js"></script>
+	<script src="js/MessageStore.js"></script>
+	<script src="js/TopicStore.js"></script>
+	<script type="text/jsx;harmony=true" src="js/TopicSubscriber.js"></script>
+	<script type="text/jsx;harmony=true" src="js/MessageBox.js"></script>
+	<script type="text/jsx;harmony=true" src="js/PublishBox.js"></script>
+	<script type="text/jsx;harmony=true" src="js/MQTTWebApp.js"></script>
+
+</html>
