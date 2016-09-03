@@ -158,7 +158,7 @@ weather.updateCurrentWeather = function () {
 			$(this.windSunLocation).updateWithText(_newWindHtml,this.fadeInterval);
 
 			var icons = new Skycons({"color": "white"});
-			var _icon = '<canvas id="animateicon" width="64" height="64" style="position:relative;display:inline-block;padding-right:15px;top:8;"></canvas>';
+			var _icon = '<canvas id="animateicon" width="64" height="64" style="position:relative;display:inline-block;padding-right:15px;top:5px;"></canvas>';
 			var _newTempHtml = _icon + tmp +'℃';
 			//$(this.temperatureLocation).updateWithText(_newTempHtml, this.fadeInterval);
 			$(this.temperatureLocation).updateWithText(_newTempHtml);
