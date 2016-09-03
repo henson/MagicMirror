@@ -62,7 +62,7 @@ var weather = {
 	apiVersion: "x3",
 	apiBase: "https://api.heweather.com",
 	weatherEndpoint: "weather",
-	updateInterval: config.weather.interval || 6000,
+	updateInterval: config.weather.interval || 1800000,
 	fadeInterval: config.weather.fadeInterval || 1000,
 	intervalId: null,
 	orientation: config.weather.orientation || "vertical",
@@ -159,13 +159,13 @@ weather.updateCurrentWeather = function () {
 
 			var icons = new Skycons({"color": "white"});
 			var _icon = '<canvas id="animateicon" width="64" height="64" style="position:relative;display:inline-block;padding-right:15px;top:8;"></canvas>';
-			icons.set("animateicon", this.skyconsTable[concode]);
-
 			var _newTempHtml = _icon + tmp +'℃';
-			$(this.temperatureLocation).updateWithText(_newTempHtml, this.fadeInterval);
+			//$(this.temperatureLocation).updateWithText(_newTempHtml, this.fadeInterval);
+			$(this.temperatureLocation).updateWithText(_newTempHtml);
+			icons.set("animateicon", this.skyconsTable[concode]);
 			icons.play();
 
-			var _newSuggestionHtml = "<img src='images/geo_icon.jpg' width='24' height='24' style='vertical-align:text-bottom;'>" + city +"今天"+ comfbrf + '，' + comftxt;
+			var _newSuggestionHtml = "<img src='images/geo_icon.jpg' width='24' height='24' style='vertical-align:text-bottom;'>" + city +" 今天 "+ comfbrf + '，' + comftxt;
 			$(this.suggestionLocation).updateWithText(_newSuggestionHtml, this.fadeInterval);
 			
 			// Week forecast start
@@ -183,17 +183,17 @@ weather.updateCurrentWeather = function () {
 					_forecastHtml4 = '';
 				}
 				var _dayName,
-					_dayNameBase  = ["今天","明天","后天"];
+					_dayNameBase  = [" 今天 "," 明天 "," 后天 "];
 				if (i < 3) {
 					_dayName = _dayNameBase[i];
 				} else {
 				_dayName = moment(_forecast.date).locale('zh-cn').format('ddd');
 				}
-				_forecastHtml += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '" class="day">' + _dayName + '</td>';
-				//_forecastHtml2 += '<td style="opacity:' + _opacity + '" class="icon-small ' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
+				_forecastHtml += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '"class="day">' + _dayName + '</td>';
+				//_forecastHtml2 += '<td style="opacity:'+ _opacity +'" class="icon-small' + this.iconTable[_forecast.weather[0].icon] + '"></td>';
 				_forecastHtml2 += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '">'+ _forecast.cond.txt_d+'</td>';
-				_forecastHtml3 += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '" class="temp-max">' + _forecast.tmp.max + '&deg;</td>';
-				_forecastHtml4 += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '" class="temp-min">' + _forecast.tmp.min + '&deg;</td>';
+				_forecastHtml3 += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '"class="temp-max">' + _forecast.tmp.max + '&deg;</td>';
+				_forecastHtml4 += '<td style="opacity:' + parseFloat(_opacity).toFixed(2) + '"class="temp-min">' + _forecast.tmp.min + '&deg;</td>';
 				_opacity -= 0.05;
 				if (this.orientation == 'vertical') {
 					_forecastHtml += _forecastHtml2 + _forecastHtml3 + _forecastHtml4 + '</tr>';
@@ -211,7 +211,7 @@ weather.updateCurrentWeather = function () {
 			$(this.forecastLocation).updateWithText(_forecastHtml, this.fadeInterval);
 			// Week forecast end
 
-			var _updateTimeHtml = "最后更新时间："+moment(update).format('HH:mm');
+			var _updateTimeHtml = " 最后更新时间："+moment(update).format('HH:mm');
 			$(this.updatetimeLocation).updateWithText(_updateTimeHtml, this.fadeInterval);
 
 		}.bind(this),
